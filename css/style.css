@@ -1,0 +1,287 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+::after,
+::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+h1 {
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.wrapper {
+    display: flex;
+}
+
+.main {
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    transition: all 0.35s ease-in-out;
+    background-color: #fafbfe;
+}
+
+#sidebar {
+    width: 70px;
+    min-width: 70px;
+    z-index: 1000;
+    transition: all .25s ease-in-out;
+    background-color: #0e2238;
+    display: flex;
+    flex-direction: column;
+}
+
+#sidebar.expand {
+    width: 260px;
+    min-width: 260px;
+}
+
+.toggle-btn {
+    background-color: transparent;
+    cursor: pointer;
+    border: 0;
+    padding: 1rem 1.5rem;
+}
+
+.toggle-btn i {
+    font-size: 1.5rem;
+    color: #FFF;
+}
+
+.sidebar-logo {
+    margin: auto 0;
+}
+
+.sidebar-logo a {
+    color: #FFF;
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+
+#sidebar:not(.expand) .sidebar-logo,
+#sidebar:not(.expand) a.sidebar-link span {
+    display: none;
+}
+
+.sidebar-nav {
+    padding: 2rem 0;
+    flex: 1 1 auto;
+}
+
+a.sidebar-link {
+    padding: .625rem 1.625rem;
+    color: #FFF;
+    display: block;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    border-left: 3px solid transparent;
+}
+
+.sidebar-link i {
+    font-size: 1.1rem;
+    margin-right: .75rem;
+}
+
+a.sidebar-link:hover {
+    background-color: rgba(255, 255, 255, .075);
+    border-left: 3px solid #3b7ddd;
+}
+
+.sidebar-item {
+    position: relative;
+}
+
+#sidebar:not(.expand) .sidebar-item .sidebar-dropdown {
+    position: absolute;
+    top: 0;
+    left: 70px;
+    background-color: #0e2238;
+    padding: 0;
+    min-width: 15rem;
+    display: none;
+}
+
+#sidebar:not(.expand) .sidebar-item:hover .has-dropdown+.sidebar-dropdown {
+    display: block;
+    max-height: 15em;
+    width: 100%;
+    opacity: 1;
+}
+
+#sidebar.expand .sidebar-link[data-bs-toggle="collapse"]::after {
+    border: solid;
+    border-width: 0 .075rem .075rem 0;
+    content: "";
+    display: inline-block;
+    padding: 2px;
+    position: absolute;
+    right: 1.5rem;
+    top: 1.4rem;
+    transform: rotate(-135deg);
+    transition: all .2s ease-out;
+}
+
+#sidebar.expand .sidebar-link[data-bs-toggle="collapse"].collapsed::after {
+    transform: rotate(45deg);
+    transition: all .2s ease-out;
+}
+
+
+#timetable {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr); /* 6 columnas para los días de la semana */
+}
+
+.cell {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.time-label {
+    font-weight: bold;
+}
+
+.day-label {
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Estilos Horarios */
+#moduloHorario {
+    font-family: 'Arial', sans-serif;
+    margin-top: 20px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* Estilos para cada asignatura */
+.asignatura-list {
+    border: 1px solid #d9c8c8;
+    margin: 10px 0;
+    padding: 10px;
+}
+
+.asignatura-item {
+    font-weight: bold;
+}
+
+.horario-item {
+    margin-bottom: 5px;
+    font-weight: normal;
+}
+.align-left-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center; /* Alinea verticalmente el botón al centro si es necesario */
+    width: 100%; /* O ajusta el ancho según tus necesidades */
+}
+
+.align-left {
+    text-align: left;
+}
+
+
+#titulo {
+    font-weight: auto;
+    font-size: 3.5rem;
+    margin: 0; /* Elimina el margen predeterminado del h1 */
+}
+
+@media (max-width: 480px) {
+    #titulo {
+        font-size: 1.5rem;
+    }
+}
+/* Estilos para la lista de resultados */
+#moduloResultados ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  #moduloResultados li {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+  }
+  
+  /* Estilos para los títulos de columna */
+  #moduloResultados li h3 {
+    margin-bottom: 5px;
+  }
+  
+  /* Estilos para el código ADN */
+  #moduloResultados li .codigo-adn {
+    font-weight: bold;
+    color: #3366cc; /* Color personalizable */
+  }
+  
+  /* Estilos para la coincidencia */
+  #moduloResultados li .coincidencia {
+    color: #33cc33; /* Color personalizable */
+  }
+  
+  /* Estilos para el porcentaje de coincidencia */
+  #moduloResultados li .porcentaje-coincidencia {
+    color: #ff9900; /* Color personalizable */
+  }
+  .formulario {
+    width: 60%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.formulario h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.formulario label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.formulario input[type="text"],
+.formulario input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.formulario button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.formulario button:hover {
+    background-color: #45a049;
+}
